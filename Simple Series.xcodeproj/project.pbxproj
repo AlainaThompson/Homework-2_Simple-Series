@@ -17,6 +17,8 @@
 		0919742B27A6D2E9009B899E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0919740127A6D2E5009B899E /* ContentView.swift */; };
 		0919742C27A6D2E9009B899E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0919740227A6D2E9009B899E /* Assets.xcassets */; };
 		0919742D27A6D2E9009B899E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0919740227A6D2E9009B899E /* Assets.xcassets */; };
+		0919743D27A6D318009B899E /* Series Sums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0919743C27A6D318009B899E /* Series Sums.swift */; };
+		0919743E27A6D318009B899E /* Series Sums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0919743C27A6D318009B899E /* Series Sums.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,7 @@
 		0919742027A6D2E9009B899E /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0919742427A6D2E9009B899E /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		0919742627A6D2E9009B899E /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
+		0919743C27A6D318009B899E /* Series Sums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Series Sums.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				0919740027A6D2E5009B899E /* Simple_SeriesApp.swift */,
+				0919743C27A6D318009B899E /* Series Sums.swift */,
 				0919740127A6D2E5009B899E /* ContentView.swift */,
 				0919740227A6D2E9009B899E /* Assets.xcassets */,
 			);
@@ -300,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0919742A27A6D2E9009B899E /* ContentView.swift in Sources */,
+				0919743D27A6D318009B899E /* Series Sums.swift in Sources */,
 				0919742827A6D2E9009B899E /* Simple_SeriesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0919742B27A6D2E9009B899E /* ContentView.swift in Sources */,
+				0919743E27A6D318009B899E /* Series Sums.swift in Sources */,
 				0919742927A6D2E9009B899E /* Simple_SeriesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
