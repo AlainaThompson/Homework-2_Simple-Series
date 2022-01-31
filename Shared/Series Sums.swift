@@ -13,42 +13,41 @@ class SimpleSeries: NSObject,ObservableObject {
  
     var n = 1.0
     var N = 100.0
-    var sUp = [Double]()
-    var sDown  = [Double]()
+    var sUp: [Double] = []
+    var sDown: [Double] = []
     @Published var sumUpText = ""
     @Published var sumDownText = ""
     @Published var NString = "100.0"
     @Published var enableButton = true
     
     
-    
-    
     func initWithSum() async -> Bool {
-            
-                
-                let _ = await withTaskGroup(of:  Void.self) { taskGroup in
-                    
-            
-                
-                    taskGroup.addTask { let _ = await self.sumUp()}
-                    taskGroup.addTask { let _ = await self.sumDown()}
-                
-            }
-                
-                await setButtonEnable(state: true)
-                                                     
            
-            
+               
+               let _ = await withTaskGroup(of:  Void.self) { taskGroup in
+                   
+           
+               
+                   taskGroup.addTask { let _ = await self.sumUp()}
+                   taskGroup.addTask { let _ = await self.sumDown()}
+               
+           }
+               
+                                                    
+          
 
-            return true
-            
-        }
+           return true
+           
+       }
+       
+    
+   
     
     
-    
-    
-    func sumUp() async -> [Double] {
+    func sumUp () async -> [Double] {
         n = 1.0
+        
+        
         for n in stride(from: 1, to: N, by: 1) {
             sUp.append(1/n)
         
@@ -79,6 +78,24 @@ class SimpleSeries: NSObject,ObservableObject {
         return sDown
         
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     @MainActor func setButtonEnable(state: Bool){
