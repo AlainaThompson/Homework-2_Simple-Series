@@ -9,7 +9,6 @@ import SwiftUI
 struct ContentView: View {
     
     @ObservedObject private var seriesModel = SimpleSeries()
-    @State var nString = "1.0"
     @State var NString = "100.0"
     
     var body: some View {

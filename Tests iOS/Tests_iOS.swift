@@ -30,6 +30,53 @@ class Tests_iOS: XCTestCase {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
+    
+    
+    
+    
+    func testSphereInitialization() async {
+        
+            
+            let n = 100
+            
+            let mySum = SimpleSeries()
+            
+            let _ = await mySum.initWithSum()
+            
+            let upSum = mySum.sUp
+            
+        XCTAssertEqual(sUp, 1/n, accuracy: 1.0E-7, "Was not equal to this resolution.")
+            
+            let downSum = mySum.sDown
+            
+            XCTAssertEqual(sDown, 1/n, accuracy: 1.0E-7, "Was not equal to this resolution.")
+            
+            
+        }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
