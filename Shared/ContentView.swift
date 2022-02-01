@@ -86,7 +86,7 @@ struct ContentView: View {
         
     }
         
-    func calculateSphere() async {
+    func sumUp() async {
         
         seriesModel.setButtonEnable(state: false)
         
@@ -96,6 +96,15 @@ struct ContentView: View {
 
 }
     
+    func sumDown() async {
+        
+        seriesModel.setButtonEnable(state: false)
+        
+        let _ : Bool = await seriesModel.initWithSum()
+        
+        
+
+}
     
             
     

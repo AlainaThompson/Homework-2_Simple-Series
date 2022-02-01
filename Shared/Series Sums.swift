@@ -11,10 +11,10 @@ import SwiftUI
 
 class SimpleSeries: NSObject,ObservableObject {
  
-    var n = 1.0
-    var N = 100.0
-    var sUp: [Double] = []
-    var sDown: [Double] = []
+    var n = 1
+    var N = 100
+    var sUp = 0.0
+    var sDown = 0.0
     @Published var sumUpText = ""
     @Published var sumDownText = ""
     @Published var NString = "100.0"
@@ -32,8 +32,7 @@ class SimpleSeries: NSObject,ObservableObject {
                    taskGroup.addTask { let _ = await self.sumDown()}
                
            }
-               
-                                                    
+            await setButtonEnable(state: true)
           
 
            return true
@@ -44,12 +43,12 @@ class SimpleSeries: NSObject,ObservableObject {
    
     
     
-    func sumUp () async -> [Double] {
-        n = 1.0
+    func sumUp () async -> Double {
+        n = 1
         
         
         for n in stride(from: 1, to: N, by: 1) {
-            sUp.append(1/n)
+            sUp += Double(1/n)
         
         }
         
@@ -57,24 +56,22 @@ class SimpleSeries: NSObject,ObservableObject {
                     
       await updateSumUp(sumUpTextString: newSumUpText)
       await newSumUpValue(sumUpValue: sUp)
-        sUp = sUp.reduce(0, +)
       return sUp
         
     }
     
     
-    func sumDown() async -> [Double] {
+    func sumDown() async -> Double {
         n = N
         for n in stride(from: N, to: 1, by: -1){
             
-            sDown.append(1/n)
+            sDown += Double(1/n)
             
         }
         let newSumDownText = String(format: "%7.5f", sDown)
                       
         await updateSumDown(sumDownTextString: newSumDownText)
         await newSumDownValue(sumDownValue: sDown)
-        sDown = sDown.reduce(0, +)
         return sDown
         
     }
@@ -135,13 +132,13 @@ class SimpleSeries: NSObject,ObservableObject {
                
            }
            
-           @MainActor func newSumUpValue(sumUpValue: [Double]){
+           @MainActor func newSumUpValue(sumUpValue: Double){
                
                self.sUp = sumUpValue
                
            }
            
-           @MainActor func newSumDownValue(sumDownValue: [Double]){
+           @MainActor func newSumDownValue(sumDownValue: Double){
                
                self.sDown = sumDownValue
                
