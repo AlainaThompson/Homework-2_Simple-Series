@@ -17,7 +17,7 @@ struct ContentView: View {
             Text("N value")
                 .padding(.top,25)
                 .padding(.bottom, 0)
-            TextField("Enter N", text: $NString, onCommit: {Task.init {await self.sumUp(); await self.sumDown()}})
+            TextField("Enter N", text: $NString, onCommit: {Task.init {await self.upSum(); await self.downSum()}})
                 .padding(.horizontal)
                 .frame(width: 100)
                 .padding(.top, 0)
@@ -75,7 +75,7 @@ struct ContentView: View {
                     
                     
             
-            Button("Calculate", action: {Task.init { await self.sumUp(); await self.sumDown()}})
+            Button("Calculate", action: {Task.init { await self.upSum(); await self.downSum()}})
                 .padding(.bottom)
                 .padding()
                 .disabled(seriesModel.enableButton == false)
@@ -85,7 +85,7 @@ struct ContentView: View {
         
     }
         
-    func sumUp() async {
+    func upSum() async {
         
         seriesModel.setButtonEnable(state: false)
         
@@ -95,7 +95,7 @@ struct ContentView: View {
 
 }
     
-    func sumDown() async {
+    func downSum() async {
         
         seriesModel.setButtonEnable(state: false)
         

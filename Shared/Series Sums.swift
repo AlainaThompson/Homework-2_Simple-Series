@@ -10,7 +10,7 @@ import SwiftUI
 
 
 class SimpleSeries: NSObject,ObservableObject {
- 
+    
     var N = 100
     var sUp = 0.0
     var sDown = 0.0
@@ -19,15 +19,15 @@ class SimpleSeries: NSObject,ObservableObject {
     @Published var NString = "100.0"
     @Published var enableButton = true
     
-    
+
     func initWithSum() async -> Bool {
        
                let _ = await withTaskGroup(of:  Void.self) { taskGroup in
                    
            
-               
-                   taskGroup.addTask { let _ = await self.sumUp()}
                    taskGroup.addTask { let _ = await self.sumDown()}
+                   taskGroup.addTask { let _ = await self.sumUp()}
+                  
                
            }
             await setButtonEnable(state: true)
@@ -38,15 +38,39 @@ class SimpleSeries: NSObject,ObservableObject {
        }
        
     
-   
+    func sumDown() async -> Double {
+        
+        //  __ 1     1
+        //  \        -
+        //  /__ n=N  n
+
+
+       
+        for d in stride(from: N, through: 1, by: -1){
+            
+            sDown += 1.0/Double(d)
+            print("sDown", sDown, d)
+        }
+        let newSumDownText = String(format: "%7.5f", sDown)
+                      
+        await updateSumDown(sumDownTextString: newSumDownText)
+        await newSumDownValue(sumDownValue: sDown)
+        return sDown
+        
+    }
     
     
     func sumUp () async -> Double {
         
-        
-        for n in stride(from: 1, through: N, by: 1) {
-            sUp += 1.0/Double(n)
-           
+        //    __ N   1
+        //   \       -
+        //   /__ n=1 n
+ 
+
+       
+        for u in stride(from: 1, through: N, by: 1) {
+            sUp += 1.0/Double(u)
+           print("sUp", sUp, u)
         }
         
       let newSumUpText = String(format: "%7.5f", sUp)
@@ -58,20 +82,6 @@ class SimpleSeries: NSObject,ObservableObject {
     }
     
     
-    func sumDown() async -> Double {
-        
-        for n in stride(from: N, through: 1, by: -1){
-            
-            sDown += 1.0/Double(n)
-            
-        }
-        let newSumDownText = String(format: "%7.5f", sDown)
-                      
-        await updateSumDown(sumDownTextString: newSumDownText)
-        await newSumDownValue(sumDownValue: sDown)
-        return sDown
-        
-    }
     
     
     
