@@ -49,7 +49,7 @@ struct ContentView: View {
         VStack{
             Text("Sum Up")
                 .padding(.bottom, 0)
-            Text("\(seriesModel.sUp, specifier: "%.2f")")
+            Text("\(seriesModel.sUp/2, specifier: "%.2f")")
                 .padding(.horizontal)
                 .frame(width: 100)
                 .padding(.top, 0)
@@ -58,7 +58,7 @@ struct ContentView: View {
             
             Text("Sum Down")
                 .padding(.bottom, 0)
-            Text("\(seriesModel.sDown, specifier: "%.2f")")
+            Text("\(seriesModel.sDown/2, specifier: "%.2f")")
                 .padding(.horizontal)
                 .frame(width: 100)
                 .padding(.top, 0)

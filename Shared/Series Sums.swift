@@ -51,9 +51,9 @@ class SimpleSeries: NSObject,ObservableObject {
         for d in stride(from: N, through: 1, by: -1){
             
             sDown += 1.0/Double(d)
-            print("sDown", sDown, d)
+            
         }
-        let newSumDownText = String(format: "%7.5f", sDown)
+        let newSumDownText = String(format: "%7.5f", sDown/2)
                       
         await updateSumDown(sumDownTextString: newSumDownText)
         await newSumDownValue(sumDownValue: sDown)
@@ -72,10 +72,10 @@ class SimpleSeries: NSObject,ObservableObject {
        
         for u in stride(from: 1, through: N, by: 1) {
             sUp += 1.0/Double(u)
-           print("sUp", sUp, u)
+          
         }
         
-      let newSumUpText = String(format: "%7.5f", sUp)
+      let newSumUpText = String(format: "%7.5f", sUp/2)
                     
       await updateSumUp(sumUpTextString: newSumUpText)
       await newSumUpValue(sumUpValue: sUp)
