@@ -89,7 +89,7 @@ struct ContentView: View {
         
         seriesModel.setButtonEnable(state: false)
         
-        let _ : Bool = await seriesModel.initWithSum()
+        let _ : Bool = await seriesModel.initWithSum(N: Int(NString)!)
         
         
 
@@ -99,7 +99,7 @@ struct ContentView: View {
         
         seriesModel.setButtonEnable(state: false)
         
-        let _ : Bool = await seriesModel.initWithSum()
+        let _ : Bool = await seriesModel.initWithSum(N: Int(NString)!)
         
         
 

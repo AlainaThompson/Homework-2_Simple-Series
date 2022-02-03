@@ -11,7 +11,7 @@ import SwiftUI
 
 class SimpleSeries: NSObject,ObservableObject {
     
-    var N = 100
+    var Number = 100
     var sUp = 0.0
     var sDown = 0.0
     @Published var sumUpText = ""
@@ -20,13 +20,15 @@ class SimpleSeries: NSObject,ObservableObject {
     @Published var enableButton = true
     
 
-    func initWithSum() async -> Bool {
+    func initWithSum(N: Int) async -> Bool {
+        
+        Number = N
        
-               let _ = await withTaskGroup(of:  Void.self) { taskGroup in
+        let _ = await withTaskGroup(of:  Void.self) { taskGroup in
                    
            
-                   taskGroup.addTask { let _ = await self.sumDown()}
-                   taskGroup.addTask { let _ = await self.sumUp()}
+            taskGroup.addTask { let _ = await self.sumDown(N: self.Number)}
+            taskGroup.addTask { let _ = await self.sumUp(N: self.Number)}
                   
                
            }
@@ -38,7 +40,7 @@ class SimpleSeries: NSObject,ObservableObject {
        }
        
     
-    func sumDown() async -> Double {
+    func sumDown(N: Int) async -> Double {
         
         //  __ 1     1
         //  \        -
@@ -60,7 +62,7 @@ class SimpleSeries: NSObject,ObservableObject {
     }
     
     
-    func sumUp () async -> Double {
+    func sumUp (N: Int) async -> Double {
         
         //    __ N   1
         //   \       -
